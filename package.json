@@ -1,19 +1,20 @@
 {
-  "name": "mf-cv",
-  "version": "0.0.1",
+  "name": "mf-cv-tcc",
   "author": "José Valdir Gonçalves da Silva Neto",
+  "version": "0.0.2",
+  "license": "MIT",
+  "main": "bundles/mf-cv-tcc.umd.js",
+  "module": "index.js",
+  "typings": "index.d.ts",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod --output-hashing=none",
-    "serve": "http-server --gzip",
+    "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "postinstall": "ng build --prod --output-hashing=none",
-    "build:esm": "gulp inline-templates"
+    "e2e": "ng e2e"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "~8.2.14",
     "@angular/common": "~8.2.14",
