@@ -1,13 +1,17 @@
 {
-  "name": "carrinho",
-  "version": "0.0.0",
+  "name": "mf-cv",
+  "version": "0.0.1",
+  "author": "José Valdir Gonçalves da Silva Neto",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod --output-hashing=none",
+    "serve": "http-server --gzip",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --prod --output-hashing=none",
+    "build:esm": "gulp inline-templates"
   },
   "private": true,
   "dependencies": {
@@ -15,10 +19,14 @@
     "@angular/common": "~8.2.14",
     "@angular/compiler": "~8.2.14",
     "@angular/core": "~8.2.14",
+    "@angular/elements": "^9.1.1",
     "@angular/forms": "~8.2.14",
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
+    "@webcomponents/custom-elements": "^1.4.1",
+    "gulp": "^4.0.2",
+    "node-sass": "^4.13.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
