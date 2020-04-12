@@ -1,17 +1,6 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { ProdutoList } from './models/produto-list';
 
-
-export class Product {
-  public nome: string;
-  public code: string;
-  public cartprice: number;
-  public preco: number;
-  public quantidade: number;
-  public qty: number;
-  constructor() {
-
-  }
-}
 
 @Component({
   selector: 'cart-view',
@@ -21,8 +10,8 @@ export class Product {
 })
 export class CarrinhoComponent implements OnInit {
 
-  public productlist: Product[];
-  public totalprice = 0;
+  public productlist: Array<ProdutoList> = new Array<ProdutoList>();
+  public totalprice: number;
   _message: string;
 
   public ngOnInit(): void {
@@ -44,7 +33,7 @@ export class CarrinhoComponent implements OnInit {
       product.qty = product.qty + 1;
       this.totalprice = this.totalprice + message['preco'];
     } else if (message !== "" && message !== undefined) {
-      product = new Product();
+      product = new ProdutoList();
       product.qty = 1;
       product.preco = (message['preco'] !== undefined) ? message['preco'] : 0;
       product.nome = (message['nome'] !== undefined) ? message['nome'] : "";
@@ -55,7 +44,7 @@ export class CarrinhoComponent implements OnInit {
 
   }
 
-  getProduct(nome): Product {
+  getProduct(nome): ProdutoList {
     let productObj = undefined;
     for (let product of this.productlist) {
       if (product.nome === nome) {

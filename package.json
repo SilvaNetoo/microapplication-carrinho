@@ -1,7 +1,7 @@
 {
   "name": "mf-cv-tcc",
   "author": "José Valdir Gonçalves da Silva Neto",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "license": "MIT",
   "main": "bundles/mf-cv-tcc.umd.js",
   "module": "index.js",
