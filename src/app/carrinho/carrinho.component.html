@@ -1,22 +1,21 @@
 
   <div class="col-sm-4" >
     <div class="panel panel-primary">
-        <div class="panel-heading">Check Out</div>
+        <div class="panel-heading">Carrinho</div>
         <div class="panel-body fixed-panel">
           <div class='table-responsivenes'   style="border:none">
             <table class='table' border="0" style="    position: relative;">
               <thead>
                 <tr>
-                  <th>Product</th>
-                  <th>Quantity</th>
-                  <th>Price</th>
-                        
+                  <th>Produto</th>
+                  <th>Quantidade</th>
+                  <th>Preço</th>
                 </tr>
               </thead>
               <tbody>
                  
                 <tr *ngFor="let product of productlist"> 
-                  <td>{{product.productname}}</td>
+                  <td>{{product.nome}}</td>
                   <td class="space-caret"> 
                      
                       <div class="input-group spinner">
@@ -28,7 +27,7 @@
                  </div>
 
                   </td>
-                  <td>{{product.cartprice | currency: 'USD' :true: '1.2-2'}}</td>
+                  <td>{{product.preco | currency: 'BRL' :true: '1.2-2'}}</td>
                 </tr>
               </tbody>
               
@@ -36,7 +35,7 @@
                   <tr>
                     <th style="border-bottom:0">Total</th>
                     <th style="border-bottom:0"></th>
-                    <th style="border-bottom:0">{{totalprice | currency: 'USD' :true: '1.2-2'}}</th>
+                    <th style="border-bottom:0">{{totalprice | currency: 'BRL' :true: '1.2-2'}}</th>
                           
                   </tr>
                 </tfoot>

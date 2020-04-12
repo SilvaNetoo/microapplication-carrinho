@@ -2,11 +2,11 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 
 
 export class Product {
-  public productname: string;
+  public nome: string;
   public code: string;
   public cartprice: number;
-  public price: number;
-  public available: number;
+  public preco: number;
+  public quantidade: number;
   public qty: number;
   constructor() {
 
@@ -39,29 +39,26 @@ export class CarrinhoComponent implements OnInit {
   get message(): string { return this._message; }
 
   processMessage(message) {
-    let product = this.getProduct(message['productname']);
+    let product = this.getProduct(message['nome']);
     if (product !== undefined) {
       product.qty = product.qty + 1;
-      product.cartprice = product.cartprice + message['price'];
-      this.totalprice = this.totalprice + message['price'];
+      this.totalprice = this.totalprice + message['preco'];
     } else if (message !== "" && message !== undefined) {
       product = new Product();
       product.qty = 1;
-      product.price = (message['price'] !== undefined) ? message['price'] : 0;
-      product.productname = (message['productname'] !== undefined) ? message['productname'] : "";
-      product.available = (message['available'] !== undefined) ? message['available'] : 0;
-      product.code = (message['code'] !== undefined) ? message['code'] : "";
-      product.cartprice = (message['price'] !== undefined) ? message['price'] : 0;
+      product.preco = (message['preco'] !== undefined) ? message['preco'] : 0;
+      product.nome = (message['nome'] !== undefined) ? message['nome'] : "";
+      product.quantidade = (message['quantidade'] !== undefined) ? message['quantidade'] : 0;
       this.productlist.push(product);
-      this.totalprice = this.totalprice + product.price;
+      this.totalprice = this.totalprice + product.preco;
     }
 
   }
 
-  getProduct(productname): Product {
+  getProduct(nome): Product {
     let productObj = undefined;
     for (let product of this.productlist) {
-      if (product.productname === productname) {
+      if (product.nome === nome) {
         productObj = product;
         break;
       }
@@ -70,19 +67,19 @@ export class CarrinhoComponent implements OnInit {
   }
 
   increment(product) {
-    if (product.qty >= 0 && product.qty < product.available) {
+    if (product.qty >= 0 && product.qty < product.quantidade) {
       product.qty = product.qty + 1;
-      product.cartprice = product.cartprice + product.price;
-      this.totalprice = this.totalprice + product.price;
+      product.cartprice = product.cartprice + product.preco;
+      this.totalprice = this.totalprice + product.preco;
       this.sendMessageToProductView(product);
     }
   }
 
   decrement(product) {
-    if (product.qty > 0 && product.qty <= product.available) {
+    if (product.qty > 0 && product.qty <= product.quantidade) {
       product.qty = product.qty - 1;
-      product.cartprice = product.cartprice - product.price;
-      this.totalprice = this.totalprice - product.price;
+      product.cartprice = product.cartprice - product.preco;
+      this.totalprice = this.totalprice - product.preco;
       this.sendMessageToProductView(product);
     }
   }
