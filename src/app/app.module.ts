@@ -12,7 +12,8 @@ import { CarrinhoComponent } from './carrinho/carrinho.component';
   ],
   entryComponents: [
     CarrinhoComponent
-  ]
+  ],
+  bootstrap: []
 })
 export class CarrinhoViewModule {
 

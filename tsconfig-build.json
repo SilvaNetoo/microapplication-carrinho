@@ -25,6 +25,7 @@
         "e2e"
     ],
     "files": [
-        "./tmp/src-inlined/index.ts"
+        "./tmp/src-inlined/index.ts",
+        "./node_modules/mf-cv-tcc/src/index.ts"
     ]
 }
