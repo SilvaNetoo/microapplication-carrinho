@@ -31,7 +31,7 @@
     "@angular/router": "~8.2.14",
     "@webcomponents/custom-elements": "^1.4.1",
     "bootstrap": "^3.3.7",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-angular-embed-templates": "^2.3.0",
     "gulp-inline-ng2-template": "^4.1.0",
     "gulp-pipe": "^1.0.4",
